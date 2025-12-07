@@ -143,38 +143,13 @@ Mode:
 
 ---
 
-# Question 2: 
-
-1. Api: https://reqres.in/api/users?page=2 
-2.drop "page”, "per_page", "total", "total_pages" and complete block of support. 
-
-3.Fetch the data from the given API by passing the parameter as a page and retrieving the data till the data is empty. 
-
-4.Read the data frame with a custom schema 
-<img width="1918" height="685" alt="image" src="https://github.com/user-attachments/assets/7f9a1cf2-c62d-4831-a55e-f49644452742" />
-
-5.Flatten the dataframe 
-<img width="1917" height="658" alt="image" src="https://github.com/user-attachments/assets/d8f1568e-0a96-49ba-a393-c9fec33e0cd4" />
-
-6.Derive a new column from email as site_address with values(reqres.in) 
-<img width="1917" height="567" alt="image" src="https://github.com/user-attachments/assets/2551fb13-0446-44f8-8055-85f03a02efd5" />
-
-7.Add load_date with the current date 
-<img width="1918" height="601" alt="image" src="https://github.com/user-attachments/assets/f88f9aa9-9a9c-4d6c-9570-05abc0488f94" />
-
-8.Write the data frame to location in DBFS as /db_name /table_name with  
-<img width="1918" height="432" alt="image" src="https://github.com/user-attachments/assets/6fa8c720-6d0c-4dd7-a2fc-0ed0aecb06a6" />
-
-9.Db_name as site_info and table_name as person_info with delta format and overwrite mode. 
-<img width="1918" height="642" alt="image" src="https://github.com/user-attachments/assets/c167854b-b867-49f2-9c4a-a0ca43d30c35" />
-
 # Question 2 — API Ingestion, Transformation & Delta Load (Databricks)
 
 This task implements ingesting API data from **reqres.in**, flattening JSON, transforming fields, and writing the output as a Delta table inside **Unity Catalog / Volumes**.
 
 ---
-
-# 🔄 Part A — Free Edition Workaround (Before Q4 Logic)
+# 1. Api: https://reqres.in/api/users?page=2 
+## 🔄 Part A — Free Edition Workaround (Before Q4 Logic)
 
 Databricks Free Edition blocks external API calls.  
 To simulate API ingestion, we generate and store the JSON response manually.
@@ -265,12 +240,13 @@ Drop:
 
 ---
 
-## 📌 8. Write DataFrame to DBFS as Delta
+## 📌 8. Write the data frame to location in DBFS as /db_name /table_name with  Db_name as site_info and table_name as person_info with delta format and overwrite mode. 
+### Step 1 Write DataFrame to DBFS as Delta
 <img width="1918" height="300" alt="image" src="https://github.com/user-attachments/assets/d2823729-db43-4ad4-a57e-e00e4419fefd" />
 
 ---
 
-## 📌 9. Register Table in Unity Catalog
+### Step 2 Register Table in Unity Catalog
 <img width="1918" height="660" alt="image" src="https://github.com/user-attachments/assets/bbcab0c1-2410-4800-b424-c54a8b4413ca" />
 
 ---
