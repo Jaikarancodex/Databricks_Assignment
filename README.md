@@ -1,4 +1,4 @@
-# ⭐ Databricks Assignment 
+# 🚀 Databricks Assignment 
 
 This project implements a full ETL pipeline using **Databricks Free Edition** with **Unity Catalog Volumes**.  
 The pipeline includes reading raw CSV files, transforming them, and writing Delta tables across Bronze, Silver, and Gold layers.
