@@ -148,7 +148,7 @@ Mode:
 This task implements ingesting API data from **reqres.in**, flattening JSON, transforming fields, and writing the output as a Delta table inside **Unity Catalog / Volumes**.
 
 ---
-# 1. Api: https://reqres.in/api/users?page=2 
+### 1. Api: https://reqres.in/api/users?page=2 
 ## 🔄 Part A — Free Edition Workaround (Before Q4 Logic)
 
 Databricks Free Edition blocks external API calls.  
