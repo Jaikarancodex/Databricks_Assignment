@@ -143,4 +143,142 @@ Mode:
 
 ---
 
+# Question 2: 
 
+1. Api: https://reqres.in/api/users?page=2 
+2.drop "page”, "per_page", "total", "total_pages" and complete block of support. 
+
+3.Fetch the data from the given API by passing the parameter as a page and retrieving the data till the data is empty. 
+
+4.Read the data frame with a custom schema 
+<img width="1918" height="685" alt="image" src="https://github.com/user-attachments/assets/7f9a1cf2-c62d-4831-a55e-f49644452742" />
+
+5.Flatten the dataframe 
+<img width="1917" height="658" alt="image" src="https://github.com/user-attachments/assets/d8f1568e-0a96-49ba-a393-c9fec33e0cd4" />
+
+6.Derive a new column from email as site_address with values(reqres.in) 
+<img width="1917" height="567" alt="image" src="https://github.com/user-attachments/assets/2551fb13-0446-44f8-8055-85f03a02efd5" />
+
+7.Add load_date with the current date 
+<img width="1918" height="601" alt="image" src="https://github.com/user-attachments/assets/f88f9aa9-9a9c-4d6c-9570-05abc0488f94" />
+
+8.Write the data frame to location in DBFS as /db_name /table_name with  
+<img width="1918" height="432" alt="image" src="https://github.com/user-attachments/assets/6fa8c720-6d0c-4dd7-a2fc-0ed0aecb06a6" />
+
+9.Db_name as site_info and table_name as person_info with delta format and overwrite mode. 
+<img width="1918" height="642" alt="image" src="https://github.com/user-attachments/assets/c167854b-b867-49f2-9c4a-a0ca43d30c35" />
+
+# Question 2 — API Ingestion, Transformation & Delta Load (Databricks)
+
+This task implements ingesting API data from **reqres.in**, flattening JSON, transforming fields, and writing the output as a Delta table inside **Unity Catalog / Volumes**.
+
+---
+
+# 🔄 Part A — Free Edition Workaround (Before Q4 Logic)
+
+Databricks Free Edition blocks external API calls.  
+To simulate API ingestion, we generate and store the JSON response manually.
+
+---
+
+## ✅ Step 1 — Create JSON API Response
+<img width="1916" height="787" alt="image" src="https://github.com/user-attachments/assets/2ff6729b-ec58-400c-a0c6-c04cce6cc39b" />
+
+---
+
+## ✅ Step 2 — Save JSON to Volume
+<img width="1918" height="322" alt="image" src="https://github.com/user-attachments/assets/f1a2e9ee-3f19-4e08-b8a1-726c940dbc71" />
+
+---
+
+## ✅ Step 3 — Read JSON With Multiline Support
+<img width="1918" height="621" alt="image" src="https://github.com/user-attachments/assets/d04e2e68-abdd-4949-bf2d-c32dc0076a36" />
+
+---
+
+# ⭐ Part B — Required Assignment Logic (Q4 onward)
+
+---
+
+## 📌 1. API URL
+
+```
+https://reqres.in/api/users?page=2
+```
+
+---
+
+## 📌 2. Drop Columns
+
+Drop:
+- page
+- per_page
+- total
+- total_pages
+- support (entire block)
+
+<img width="1918" height="555" alt="image" src="https://github.com/user-attachments/assets/36e181a1-333c-4b70-a927-8368d6f0c4e9" />
+
+---
+
+## 📌 3. Fetch Pages Until Empty
+### Databricks FREE EDITION (NO INTERNET)
+#### You CANNOT do the loop.
+
+## ✅You MUST:
+
+* Download the JSON manually
+* Save it into /Volumes/.../api/users_page1.json
+* Read it with multiline JSON
+* Then flatten it
+* No loop needed
+* No pagination logic needed
+* Correct code:
+<img width="1918" height="640" alt="image" src="https://github.com/user-attachments/assets/a4fb5342-e969-4921-ac5d-6cde04f1289e" />
+
+### Then:
+
+<img width="1918" height="611" alt="image" src="https://github.com/user-attachments/assets/8c286743-dfc8-41d0-b36e-f22b3cc658f7" />
+
+
+---
+
+## 📌 4. Read Into DataFrame Using Custom Schema
+<img width="1918" height="611" alt="image" src="https://github.com/user-attachments/assets/d4c14dd3-3dd1-4ada-83e6-c6b32ad206b4" />
+
+
+---
+
+## 📌 5. Flatten the DataFrame
+<img width="1918" height="636" alt="image" src="https://github.com/user-attachments/assets/fe4d9ee8-5d2f-471f-8ce9-4ace9740d366" />
+
+---
+
+## 📌 6. Derive Column `site_address`
+<img width="1917" height="536" alt="image" src="https://github.com/user-attachments/assets/51db6a00-4d60-41cf-8afd-95068c678c7b" />
+
+---
+
+## 📌 7. Add `load_date`
+<img width="1918" height="556" alt="image" src="https://github.com/user-attachments/assets/bcc05a0f-3f4e-4300-9146-05f1e21b5539" />
+
+
+---
+
+## 📌 8. Write DataFrame to DBFS as Delta
+<img width="1918" height="300" alt="image" src="https://github.com/user-attachments/assets/d2823729-db43-4ad4-a57e-e00e4419fefd" />
+
+---
+
+## 📌 9. Register Table in Unity Catalog
+<img width="1918" height="660" alt="image" src="https://github.com/user-attachments/assets/bbcab0c1-2410-4800-b424-c54a8b4413ca" />
+
+---
+
+### 🎉 Final Output
+
+A fully transformed Delta table registered in Unity Catalog:
+
+
+
+ 
